@@ -2,7 +2,7 @@
 #SBATCH -p core
 #SBATCH -n 1
 #SBATCH -t 10:00
-#SBATCH --job-name gha_intel_cpp17
+#SBATCH --job-name gha_gcc_cpp17
 #SBATCH --output build_rackham.log
 #SBATCH --qos=short
 #
@@ -24,11 +24,5 @@ else
   exit 42
 fi
 
-module load intel/20.4
-module load cmake/3.22.2 
-
-# Rackham location (GHA location: source /opt/intel/oneapi/setvars.sh)
-source /sw/comp/intel/oneapi/setvars.sh
-
-icpx main.cpp -o gha_intel_cpp17
-./gha_intel_cpp17
+g++ main.cpp -o gha_gcc_cpp17
+./gha_gcc_cpp17
