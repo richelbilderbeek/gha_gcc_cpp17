@@ -24,5 +24,6 @@ else
   exit 42
 fi
 
+module load gcc/13.1.0
 g++ main.cpp -o gha_gcc_cpp17
 ./gha_gcc_cpp17
